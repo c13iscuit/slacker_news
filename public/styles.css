@@ -1,0 +1,97 @@
+.nav {
+  background-color: #FF6600;
+  margin-left: 75px;
+  margin-right: 75px;
+  height: 25px;
+  border: 0;
+  padding: 0;
+}
+
+.nav-links > li {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.nav-links > li > a {
+  color: #000000;
+  text-decoration: none;
+  font-family: 'arial', 'sans-serif';
+}
+
+.article-container {
+  background-color: #F2F2DC;
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
+#login {
+  float: right;
+  margin-right: 10px;
+}
+
+#logo {
+  vertical-align: middle;
+  float: left;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+#logo-image {
+  border: 2.5px;
+  border-color: white;
+}
+
+#site_title {
+  float: left;
+  margin-left: -14px;
+}
+
+#first {
+  margin-left: 10px;
+}
+
+br {
+   display: block;
+   margin: 5px 0;
+}
+
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: #A1A1A1;
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  color: #A1A1A1;
+  margin: 0;
+  padding: 0;
+}
+
+ol {
+  color: #000000;
+  text-decoration: none;
+  font-family: 'arial', 'sans-serif';
+}
+
+.article-titles {
+  margin: 0;
+  padding: 0;
+}
+
+.article-titles > a {
+  display: inline;
+  color: #000000;
+  text-decoration: none;
+  font-family: 'arial', 'sans-serif';
+}
+
+.tiny {
+  font-family: 'arial', 'sans-serif';
+  font-size: x-small;
+}
+

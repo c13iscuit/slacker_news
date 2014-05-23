@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Slacker News</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class = "nav">
+    <a id = "logo" href = "http://www.ycombinator.com"><img id = "logo-image" src="https://news.ycombinator.com/y18.gif"></a>
+      <ul class = "nav-links">
+        <li id = "site_title">
+          <a href = "#"><strong>Hacker News</strong></a>
+        </li>
+         <li id = "first">
+          <a href = "#">new |</a>
+        </li>
+         <li>
+          <a href = "/comments">comments |</a>
+        </li>
+         <li>
+          <a href = "#">ask |</a>
+        </li>
+         <li>
+          <a href = "#">jobs |</a>
+        </li>
+         <li>
+          <a href = "/submission">submit</a>
+        </li>
+         <li id = "login">
+          <a href = "#">login</a>
+        </li>
+      </ul>
+    </div>
+    <div class = "article-container">
+    <ol class = "article-list">
+    <% @articles.each do |article|%>
+     <li class = "lines">
+          <div class = "articles">
+            <h5 class = "article-titles">
+              <a href = "http://<%=article[1]%>" target="_blank"><%="#{article[0]}"%></a><span><%="   (#{article[1]})"%></span>
+            </h5>
+            <p class = "tiny"><%="#{article[2]}"%></p>
+            <p class = "tiny">63 points by lyime 56 minutes ago | 17 comments</p>
+            <p style="margin-top:5px"></p>
+          </div>
+      </li>
+    <% end %>
+    </ol>
+    </div>
+  </body>
+</html>
