@@ -2,9 +2,33 @@ require 'sinatra'
 require 'csv'
 require 'pry'
 require 'json'
+require 'pg'
+require 'uri'
+require 'net/http'
+
+# Net::HTTP.get_response(URI.parse(url)).code != "200"
+
+def get_articles
+  connection = PG.connect(dbname: 'slacker')
+  results = connection.exec('SELECT * FROM articles')
+
+  connection.close
+
+  results
+end
+
+def save_article(content)
+  sql = "INSERT INTO articles (title, url, description,created_at) VALUES ($1,$2,$3,now())"
+
+  connection = PG.connect(dbname: 'slacker')
+  connection.exec_params(sql,content)
+
+  connection.close
+
+end
 
 get "/" do
-  @articles = CSV.read("submission.csv")
+  @articles = get_articles
   erb :index
 end
 
@@ -26,16 +50,16 @@ get "/submission" do
 end
 
 post "/submission" do
+  #if Net::HTTP.get_response(URI.parse(url)).code == "200"
+
   @title = params["title"]
   @url = params["url"]
   @description = params["description"]
-  if @title != "" && @description.length > 20
-    File.open("submission.csv", "a") do |file|
-      file.puts("#{@title},#{@url},#{@description}")
-    end
-  else
-    redirect "/submission"
-    puts "ERROR"
-  end
+  save_article([@title,@url,@description])
   redirect "/"
+
+  # else
+  #   puts "Go fuck yourself!"
+  #   redirect '/submission'
+  # end
 end

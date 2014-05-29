@@ -34,14 +34,14 @@
     </div>
     <div class = "article-container">
     <ol class = "article-list">
-    <% @articles.each do |article|%>
+    <% @articles.to_a.each do |article|%>
      <li class = "lines">
           <div class = "articles">
             <h5 class = "article-titles">
-              <a href = "http://<%=article[1]%>" target="_blank"><%="#{article[0]}"%></a><span><%="   (#{article[1]})"%></span>
+              <a href = "http://<%=article['url']%>" target="_blank"><%="#{article['title']}"%></a><span><%="   (#{article['url']})"%></span>
             </h5>
-            <p class = "tiny"><%="#{article[2]}"%></p>
-            <p class = "tiny">63 points by lyime 56 minutes ago | 17 comments</p>
+            <p class = "tiny"><%="#{article['description']}"%></p>
+            <p class = "tiny">63 points by lyime <%= article['created_at'] %> | 17 comments</p>
             <p style="margin-top:5px"></p>
           </div>
       </li>
