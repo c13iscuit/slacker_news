@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Slacker News</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <div class = "nav">
     <a id = "logo" href = "http://www.ycombinator.com"><img id = "logo-image" src="https://news.ycombinator.com/y18.gif"></a>
       <ul class = "nav-links">
         <li id = "site_title">
-          <a href = "#"><strong>Hacker News</strong></a>
+          <a href = "/"><strong>Hacker News</strong></a>
         </li>
          <li id = "first">
           <a href = "#">new |</a>
         </li>
          <li>
-          <a href = "/comments">comments |</a>
+          <a href = "#">comments |</a>
         </li>
          <li>
           <a href = "#">ask |</a>
@@ -31,23 +31,25 @@
           <a href = "#">login</a>
         </li>
       </ul>
+    <form action="/comments" method="post">
+      <label for="comment">Comment:</label>
+      <input type="text" id="comment" name="comment" />
+      <input type="submit" />
+    </form>
     </div>
+    <br>
+    <br>
     <div class = "article-container">
-    <ol class = "article-list">
-    <% @articles.to_a.each do |article|%>
-     <li class = "lines">
-          <div class = "articles">
-            <h5 class = "article-titles">
-              <a href = "http://<%=article['url']%>" target="_blank"><%="#{article['title']}"%></a><span><%="   (#{article['url']})"%></span>
-            </h5>
-            <p class = "tiny"><%="#{article['description']}"%></p>
-            <p class = "tiny">63 points by lyime <%= article['created_at'] %> |
-            <a href = "/<%=article['id']%>/comments">17 comments</a></p>
-            <p style="margin-top:5px"></p>
-          </div>
-      </li>
-    <% end %>
-    </ol>
+      <ul class = "article-list">
+      <% @comments.each do |comments|%>
+       <li class = "each_comment">
+            <div class = "comments">
+              <p>HELLO!</p>
+              <br>
+            </div>
+        </li>
+      <% end %>
+      </ul>
     </div>
   </body>
 </html>
