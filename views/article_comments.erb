@@ -31,7 +31,7 @@
           <a href = "#">login</a>
         </li>
       </ul>
-    <form action="/comments" method="post">
+    <form action="/<%=@comments[0]['article_id']%>/comments" method="post">
       <label for="comment">Comment:</label>
       <input type="text" id="comment" name="comment" />
       <input type="submit" />
@@ -44,7 +44,7 @@
       <% @comments.each do |comments|%>
        <li class = "each_comment">
             <div class = "comments">
-              <p>HELLO!</p>
+              <p><%=comments['comment']%></p>
               <br>
             </div>
         </li>

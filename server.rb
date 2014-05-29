@@ -29,7 +29,7 @@ def save_article(content)
   connection.close
 end
 
-def save_comment(content) ******************
+def save_comment(content)
   sql = "INSERT INTO comments (comment,created_at) VALUES ($1,now());"
   connection = PG.connect(dbname: 'slacker')
   connection.exec_params(sql,[content])
@@ -54,11 +54,10 @@ get "/:id/comments" do
   erb :article_comments
 end
 
-post "/comments" do
+post "/:id/comments" do
   @user_comment = params["comment"]
-
-  end
-  redirect "/comments"
+  save_comment(params[:id])
+  redirect "/#{params[:id]}/comments"
 end
 
 get "/submission" do
