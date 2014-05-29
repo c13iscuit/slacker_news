@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'csv'
 require 'pry'
+require 'json'
 
 get "/" do
   @articles = CSV.read("submission.csv")
